@@ -1,0 +1,462 @@
+/* ============================================================
+   K Sagar Patro — bio site
+   Colours are tuned to blend with the studio-grey portrait.
+   ============================================================ */
+
+:root{
+  --bg:            #262626;   /* page base, matched to the photo backdrop */
+  --bg-glow:       #585859;   /* soft light behind the head */
+  --ink:           #f4f5f6;   /* main text */
+  --ink-dim:       #a3a7ad;   /* secondary text */
+  --ink-faint:     #6d7278;   /* outlines, hairlines */
+  --accent:        #25d366;   /* WhatsApp green */
+  --card:          rgba(255,255,255,.045);
+  --hairline:      rgba(255,255,255,.10);
+  --radius:        16px;
+  --maxw:          1080px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* The soft studio glow that the portrait sits inside ------------- */
+.glow{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 50% 28%, var(--bg-glow) 0%, rgba(88,88,89,.35) 42%, rgba(38,38,38,0) 72%),
+    radial-gradient(120% 80% at 50% 100%, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 60%);
+}
+
+body > *:not(.glow):not(.walker){ position:relative; z-index:1; }
+
+a{ color:inherit; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:clamp(28px,6vw,64px) 20px clamp(32px,6vw,56px);
+  text-align:center;
+}
+
+.eyebrow{
+  margin:0 0 clamp(14px,3vw,28px);
+  font-size:clamp(.82rem,2.6vw,1rem);
+  font-weight:500;
+  color:var(--ink-dim);
+  letter-spacing:.01em;
+}
+
+.hero-stage{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* --- the big headline --- */
+.headline{
+  margin:0;
+  font-family:"Anton",Impact,"Arial Black",sans-serif;
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:-.005em;
+  text-transform:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+}
+
+.line{
+  display:block;
+  font-size:clamp(2.6rem,13.2vw,8.2rem);
+  white-space:nowrap;
+}
+
+.line-solid{
+  color:var(--ink);
+}
+
+/* outlined second line — the signature move from the reference */
+.line-outline{
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(244,245,246,.55);
+  text-stroke:1.5px rgba(244,245,246,.55);
+  font-size:clamp(1.85rem,9.4vw,5.9rem);
+  margin-top:.04em;
+}
+
+@media (min-width:900px){
+  .line-outline{ -webkit-text-stroke-width:2px; }
+}
+
+/* --- portrait sitting in front of the text --- */
+.portrait-wrap{
+  position:relative;
+  margin-top:clamp(-30px,-5vw,-14px);
+  width:clamp(250px,68vw,460px);
+}
+
+/* a soft halo so the black shirt does not vanish into the dark page */
+.portrait-wrap::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:6%;
+  width:118%;
+  height:104%;
+  transform:translateX(-50%);
+  border-radius:50% 50% 44% 44%;
+  background:radial-gradient(56% 58% at 50% 42%, rgba(255,255,255,.12) 0%, rgba(255,255,255,.05) 45%, rgba(255,255,255,0) 72%);
+  pointer-events:none;
+}
+
+.portrait{
+  position:relative;
+  width:100%;
+  height:auto;
+  display:block;
+  /* fade only the bottom edge so the crop melts into the page */
+  -webkit-mask-image:linear-gradient(to bottom, #000 78%, rgba(0,0,0,.45) 92%, rgba(0,0,0,0) 100%);
+          mask-image:linear-gradient(to bottom, #000 78%, rgba(0,0,0,.45) 92%, rgba(0,0,0,0) 100%);
+  filter:drop-shadow(0 22px 40px rgba(0,0,0,.55));
+}
+
+/* shown only if assets/profile.jpg is missing */
+.portrait-fallback{
+  display:none;
+  position:absolute;
+  inset:8%;
+  border-radius:50%;
+  border:1px dashed var(--ink-faint);
+  color:var(--ink-faint);
+  font-family:"Anton",sans-serif;
+  font-size:clamp(2rem,9vw,4rem);
+  align-items:center;
+  justify-content:center;
+  letter-spacing:.04em;
+}
+
+.portrait-wrap.no-photo .portrait{ display:none; }
+.portrait-wrap.no-photo .portrait-fallback{ display:flex; }
+
+/* ============================================================
+   SCROLL WALKER
+   Sits on top of the page, driven entirely by walker.js.
+   Hidden unless the script turns it on, so the page still works
+   with JavaScript off or with reduced motion switched on.
+   ============================================================ */
+.walker{
+  position:fixed;
+  inset:0;
+  z-index:0;        /* behind the text, so nothing is ever blocked */
+  display:none;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+body.walker-on .walker{ display:block; }
+
+/* the in-flow hero photo keeps its space but hands over to the walker */
+body.walker-on .portrait-wrap > picture{ visibility:hidden; }
+body.walker-on .portrait-wrap::before{ opacity:0; }
+
+.walker-inner{
+  position:absolute;
+  left:0;
+  top:0;
+  width:1px;
+  height:1px;
+  transform-origin:0 0;
+  will-change:transform;
+}
+
+.walker-inner img{
+  position:absolute;
+  left:0;
+  top:0;
+  height:auto;
+  display:block;
+  will-change:opacity;
+}
+
+/* both images are pinned by the face, so the head never jumps */
+.walker-head{
+  transform:translate(-49.7%,-33%);
+  -webkit-mask-image:linear-gradient(to bottom, #000 78%, rgba(0,0,0,.45) 92%, rgba(0,0,0,0) 100%);
+          mask-image:linear-gradient(to bottom, #000 78%, rgba(0,0,0,.45) 92%, rgba(0,0,0,0) 100%);
+  filter:drop-shadow(0 22px 40px rgba(0,0,0,.55)) drop-shadow(0 0 46px rgba(255,255,255,.16));
+}
+
+.walker-body{
+  transform:translate(-49.8%,-7.5%);
+  filter:drop-shadow(0 26px 34px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(255,255,255,.12));
+}
+
+.tagline{
+  max-width:34rem;
+  margin:clamp(6px,2vw,14px) auto clamp(22px,5vw,34px);
+  font-size:clamp(.95rem,3.3vw,1.08rem);
+  color:var(--ink-dim);
+}
+
+.tagline strong{ color:var(--ink); font-weight:600; }
+
+/* ============================================================
+   LINK BUTTONS
+   ============================================================ */
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  border:1px solid var(--hairline);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--ink);
+  font-size:.96rem;
+  font-weight:600;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.btn svg{
+  width:19px;
+  height:19px;
+  fill:currentColor;
+  flex:none;
+}
+
+.btn:hover,
+.btn:focus-visible{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.26);
+}
+
+.btn-wa{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#0b2016;
+}
+
+.btn-wa:hover,
+.btn-wa:focus-visible{
+  background:#2ee878;
+  border-color:#2ee878;
+  color:#0b2016;
+}
+
+/* full-width stacked buttons on small phones */
+@media (max-width:420px){
+  .links{ flex-direction:column; align-items:stretch; }
+  .btn{ justify-content:center; }
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{
+  max-width:720px;
+  margin:0 auto;
+  padding:clamp(34px,7vw,64px) 20px;
+  border-top:1px solid var(--hairline);
+}
+
+.section-title{
+  margin:0 0 clamp(18px,4vw,28px);
+  font-family:"Anton",sans-serif;
+  font-weight:400;
+  font-size:clamp(1.5rem,6vw,2.3rem);
+  letter-spacing:-.01em;
+}
+
+.sub-title{
+  margin:clamp(24px,5vw,34px) 0 14px;
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+
+.sub-title:first-of-type{ margin-top:0; }
+
+.prose p{
+  margin:0 0 1em;
+  color:var(--ink-dim);
+  font-size:clamp(.96rem,3.4vw,1.06rem);
+}
+
+.prose strong{ color:var(--ink); font-weight:600; }
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.timeline{
+  list-style:none;
+  margin:0;
+  padding:0 0 0 22px;
+  border-left:1px solid var(--hairline);
+}
+
+.timeline li{
+  position:relative;
+  padding:0 0 clamp(20px,4vw,26px);
+}
+
+.timeline li:last-child{ padding-bottom:0; }
+
+.dot{
+  position:absolute;
+  left:-27px;
+  top:9px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--ink);
+  box-shadow:0 0 0 4px var(--bg);
+}
+
+.t-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:4px 12px;
+}
+
+.t-head h4{
+  margin:0;
+  font-size:clamp(1rem,3.6vw,1.12rem);
+  font-weight:600;
+}
+
+.period{
+  font-size:.8rem;
+  color:var(--ink-faint);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.timeline p{
+  margin:6px 0 0;
+  color:var(--ink-dim);
+  font-size:.95rem;
+}
+
+/* ============================================================
+   CERTIFICATIONS
+   ============================================================ */
+.cert-grid{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+
+.cert{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 18px;
+  border:1px solid var(--hairline);
+  border-radius:var(--radius);
+  background:var(--card);
+}
+
+.cert-mark{
+  flex:none;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:rgba(37,211,102,.16);
+  color:var(--accent);
+  display:grid;
+  place-items:center;
+  font-size:.82rem;
+  font-weight:700;
+}
+
+.cert h4{
+  margin:0 0 2px;
+  font-size:1rem;
+  font-weight:600;
+}
+
+.cert p{
+  margin:0;
+  font-size:.88rem;
+  color:var(--ink-dim);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  max-width:720px;
+  margin:0 auto;
+  padding:clamp(30px,6vw,52px) 20px clamp(40px,8vw,64px);
+  border-top:1px solid var(--hairline);
+  text-align:center;
+}
+
+.cta-line{
+  margin:0 0 20px;
+  font-size:clamp(1rem,3.6vw,1.1rem);
+  font-weight:600;
+}
+
+.cta-line a{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid rgba(37,211,102,.4);
+}
+
+.cta-line a:hover{ border-bottom-color:var(--accent); }
+
+.disclaimer{
+  margin:0 auto 16px;
+  max-width:40rem;
+  font-size:.8rem;
+  line-height:1.65;
+  color:var(--ink-faint);
+}
+
+.copyright{
+  margin:0;
+  font-size:.8rem;
+  color:var(--ink-faint);
+}
+
+/* ============================================================
+   MOTION PREFERENCES
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
