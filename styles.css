@@ -48,6 +48,7 @@ a{ color:inherit; }
    HERO
    ============================================================ */
 .hero{
+  position:relative;
   max-width:var(--maxw);
   margin:0 auto;
   padding:clamp(28px,6vw,64px) 20px clamp(32px,6vw,56px);
@@ -207,6 +208,83 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
 .walker-body{
   transform:translate(-49.8%,-7.5%);
   filter:drop-shadow(0 26px 34px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(255,255,255,.12));
+}
+
+/* ============================================================
+   HERO PARTNER CARD
+   Sits beside the portrait on desktop, drops under it on phones.
+   ============================================================ */
+.hero-promo{
+  width:min(100%,290px);
+  margin:22px auto 0;
+  padding:16px 18px;
+  text-align:left;
+  border:1px solid var(--hairline);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.055);
+  backdrop-filter:blur(8px);
+}
+
+.promo-tag{
+  display:inline-block;
+  margin-bottom:8px;
+  padding:3px 9px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  color:var(--ink-dim);
+  font-size:.66rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.hero-promo h3{
+  margin:0 0 4px;
+  font-size:1.08rem;
+  font-weight:600;
+}
+
+.hero-promo p{
+  margin:0 0 14px;
+  font-size:.86rem;
+  line-height:1.5;
+  color:var(--ink-dim);
+}
+
+.promo-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.08);
+  color:var(--ink);
+  font-size:.88rem;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.promo-link svg{ width:14px; height:14px; }
+
+.promo-link:hover,
+.promo-link:focus-visible{
+  background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.36);
+  transform:translateY(-1px);
+}
+
+/* beside the photo once there is room for it */
+@media (min-width:980px){
+  .hero-promo{
+    position:absolute;
+    right:20px;
+    top:46%;
+    margin:0;
+    width:264px;
+    z-index:2;
+  }
 }
 
 .tagline{
