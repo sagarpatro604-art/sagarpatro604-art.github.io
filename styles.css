@@ -289,6 +289,29 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
   transform:translateY(-1px);
 }
 
+.promo-code{
+  margin:10px 0 0;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+
+.copy-code{
+  font:inherit;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:var(--accent);
+  background:none;
+  border:0;
+  padding:0 0 1px;
+  border-bottom:1px dashed rgba(37,211,102,.5);
+  cursor:pointer;
+}
+
+.copy-code:hover{ color:#4dea8b; }
+.copy-code.copied{ color:var(--accent); border-bottom-style:solid; }
+
 /* tablets: a little narrower, tucked closer in */
 @media (max-width:979px){
   .hero-promo{
@@ -311,6 +334,7 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
     border-radius:15px;
   }
   .hero-promo p{ display:none; }
+  .hero-promo .promo-code{ display:block; margin-top:7px; font-size:.62rem; }
   .promo-tag{ margin-bottom:5px; font-size:.54rem; padding:2px 7px; }
   .hero-promo h3{ font-size:.92rem; margin-bottom:8px; }
   .promo-link{ padding:7px 12px; font-size:.76rem; gap:6px; }
@@ -598,6 +622,64 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
 
 @media (max-width:460px){
   .tool-link{ width:100%; justify-content:center; }
+}
+
+/* the discount code block inside a tool card */
+.tool-offer{
+  flex-basis:100%;
+  margin-top:4px;
+  padding-top:14px;
+  border-top:1px solid var(--hairline);
+}
+
+.offer-lead{
+  margin:0 0 12px;
+  font-size:.84rem;
+  line-height:1.55;
+  color:var(--ink-dim);
+}
+
+.code-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+
+.code-row code{
+  padding:9px 16px;
+  border-radius:10px;
+  border:1px dashed rgba(37,211,102,.45);
+  background:rgba(37,211,102,.1);
+  color:var(--accent);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.96rem;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+
+.code-row .copy-code{
+  padding:9px 15px;
+  border:1px solid rgba(255,255,255,.2);
+  border-bottom:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  color:var(--ink);
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:0;
+  transition:background .18s ease, border-color .18s ease;
+}
+
+.code-row .copy-code:hover{
+  background:rgba(255,255,255,.13);
+  border-color:rgba(255,255,255,.32);
+  color:var(--ink);
+}
+
+.code-row .copy-code.copied{
+  border-color:var(--accent);
+  color:var(--accent);
 }
 
 /* ============================================================
