@@ -14,6 +14,7 @@
 <meta property="og:image" content="assets/share-preview.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b1b1d">
 <link rel="icon" href="assets/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +25,7 @@
 <body>
 
 <div class="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- the figure that zooms out and walks down the page on scroll -->
 <div class="walker" aria-hidden="true">
@@ -43,7 +45,7 @@
      HERO
      ============================================================ -->
 <header class="hero">
-  <p class="eyebrow">Hi, my name is Sagar and I work in</p>
+  <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Hi, my name is Sagar and I work in</p>
 
   <div class="hero-stage">
     <h1 class="headline">
@@ -103,22 +105,43 @@
      ABOUT
      ============================================================ -->
 <section class="section" id="about">
-  <h2 class="section-title">About</h2>
-  <div class="prose">
-    <p>
-      I am K Sagar Patro. I work at the intersection of capital markets and equity research,
-      with hands-on experience across <strong>Vayu Capital</strong> and <strong>Digit Insurance</strong>.
-    </p>
-    <p>
-      I hold a <strong>BBA in Finance</strong> from Jain University and an
-      <strong>MBA in Capital Markets &amp; Trading</strong> from Masters&rsquo; Union.
-      Alongside that, I manage a <strong>&#8377;20 lakh personal equity corpus</strong>. My own money,
-      my own research, my own mistakes.
-    </p>
-    <p>
-      I publish sector deep-dives and market breakdowns for people who want the mechanism,
-      not the noise. If that sounds useful, the WhatsApp community above is where it lands first.
-    </p>
+  <div class="section-head" data-reveal>
+    <span class="section-index">01</span>
+    <h2 class="section-title">About</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="prose" data-reveal>
+      <p class="lead">
+        I work at the intersection of capital markets and equity research, with hands-on
+        experience across <strong>Vayu Capital</strong> and <strong>Digit Insurance</strong>.
+      </p>
+      <p>
+        I hold a <strong>BBA in Finance</strong> from Jain University and an
+        <strong>MBA in Capital Markets &amp; Trading</strong> from Masters&rsquo; Union.
+        Alongside that, I manage a <strong>&#8377;20 lakh personal equity corpus</strong>. My own money,
+        my own research, my own mistakes.
+      </p>
+      <p>
+        I publish sector deep-dives and market breakdowns for people who want the mechanism,
+        not the noise. If that sounds useful, the WhatsApp community is where it lands first.
+      </p>
+    </div>
+
+    <ul class="stats" data-reveal>
+      <li>
+        <span class="stat-value">&#8377;20L</span>
+        <span class="stat-label">Personal equity corpus</span>
+      </li>
+      <li>
+        <span class="stat-value">MBA</span>
+        <span class="stat-label">Capital Markets &amp; Trading</span>
+      </li>
+      <li>
+        <span class="stat-value">NISM</span>
+        <span class="stat-label">Series V-A certified</span>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -126,58 +149,67 @@
      EXPERIENCE & EDUCATION
      ============================================================ -->
 <section class="section" id="journey">
-  <h2 class="section-title">Experience &amp; Education</h2>
+  <div class="section-head" data-reveal>
+    <span class="section-index">02</span>
+    <h2 class="section-title">Experience &amp; Education</h2>
+  </div>
 
-  <h3 class="sub-title">Experience</h3>
-  <ol class="timeline">
-    <li>
-      <span class="dot" aria-hidden="true"></span>
-      <div class="t-head">
-        <h4>Vayu Capital</h4>
-      </div>
-    </li>
-    <li>
-      <span class="dot" aria-hidden="true"></span>
-      <div class="t-head">
-        <h4>Digit Insurance</h4>
-      </div>
-    </li>
-  </ol>
+  <div class="journey-grid">
+    <div class="journey-col" data-reveal>
+      <h3 class="sub-title">Experience</h3>
+      <ol class="timeline">
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <h4>Vayu Capital</h4>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <h4>Digit Insurance</h4>
+        </li>
+      </ol>
+    </div>
 
-  <h3 class="sub-title">Education</h3>
-  <ol class="timeline">
-    <li>
-      <span class="dot" aria-hidden="true"></span>
-      <div class="t-head">
-        <h4>MBA in Capital Markets &amp; Trading</h4>
-        <span class="period">Masters&rsquo; Union</span>
-      </div>
-    </li>
-    <li>
-      <span class="dot" aria-hidden="true"></span>
-      <div class="t-head">
-        <h4>BBA in Finance</h4>
-        <span class="period">Jain University</span>
-      </div>
-    </li>
-  </ol>
+    <div class="journey-col" data-reveal>
+      <h3 class="sub-title">Education</h3>
+      <ol class="timeline">
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <h4>MBA in Capital Markets &amp; Trading</h4>
+          <span class="period">Masters&rsquo; Union</span>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <h4>BBA in Finance</h4>
+          <span class="period">Jain University</span>
+        </li>
+      </ol>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================================
      CERTIFICATIONS
      ============================================================ -->
 <section class="section" id="certifications">
-  <h2 class="section-title">Certifications</h2>
-  <ul class="cert-grid">
+  <div class="section-head" data-reveal>
+    <span class="section-index">03</span>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+
+  <ul class="cert-grid" data-reveal>
     <li class="cert">
-      <span class="cert-mark" aria-hidden="true">&#10003;</span>
+      <span class="cert-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m5 13 4 4 10-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
       <div>
         <h4>NISM Series V-A</h4>
         <p>Mutual Fund Distributors Certification</p>
       </div>
     </li>
     <li class="cert">
-      <span class="cert-mark" aria-hidden="true">&#10003;</span>
+      <span class="cert-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m5 13 4 4 10-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
       <div>
         <h4>Equity Research Programme</h4>
         <p>The Valuation School</p>
@@ -192,22 +224,28 @@
      Keep rel="sponsored noopener" on every affiliate link.
      ============================================================ -->
 <section class="section" id="tools">
-  <h2 class="section-title">Tools I Use</h2>
-  <p class="section-note">
-    Some of the links below are affiliate links. If you sign up through them I may earn a
+  <div class="section-head" data-reveal>
+    <span class="section-index">04</span>
+    <h2 class="section-title">Tools I Use</h2>
+  </div>
+
+  <p class="section-note" data-reveal>
+    Some links below are affiliate links. If you sign up through them I may earn a
     commission, at no extra cost to you. I only list what I actually use.
   </p>
 
-  <ul class="tool-grid">
+  <ul class="tool-grid" data-reveal>
     <li class="tool">
-      <div class="tool-body">
-        <h4>Kalpi</h4>
-        <p>Quant and factor-based investing platform for Indian markets.</p>
+      <div class="tool-top">
+        <div class="tool-body">
+          <h4>Kalpi</h4>
+          <p>Quant and factor-based investing platform for Indian markets.</p>
+        </div>
+        <a class="tool-link" href="https://kalpi.ai/?ref=SAGAR32NB" target="_blank" rel="sponsored noopener">
+          <span>Visit Kalpi</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <a class="tool-link" href="https://kalpi.ai/?ref=SAGAR32NB" target="_blank" rel="sponsored noopener">
-        <span>Visit Kalpi</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
 
       <div class="tool-offer">
         <p class="offer-lead">Sign up through the button above, then use this code at checkout for a discount. It only works for people who came through my link.</p>
@@ -220,13 +258,31 @@
   </ul>
 </section>
 
+<!-- ============================================================
+     CLOSING CALL TO ACTION
+     ============================================================ -->
+<section class="cta" data-reveal>
+  <div class="cta-card">
+    <h2>Get the research first.</h2>
+    <p>Sector deep-dives and market breakdowns land in the community before anywhere else.</p>
+    <a class="btn btn-wa btn-lg" href="https://chat.whatsapp.com/DUdUxpofHqE9auMNtDyZYr" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.08a8.26 8.26 0 0 1-2.43-1.5 9.1 9.1 0 0 1-1.68-2.09c-.18-.3 0-.47.13-.62s.3-.35.45-.52a2 2 0 0 0 .3-.5.55.55 0 0 0 0-.53c0-.15-.67-1.6-.92-2.2s-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.33 3.33 0 0 0-1.04 2.48 5.8 5.8 0 0 0 1.21 3.07 13.24 13.24 0 0 0 5.07 4.48c.71.3 1.26.49 1.69.63a4.08 4.08 0 0 0 1.87.12 3.06 3.06 0 0 0 2-1.41 2.48 2.48 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.79 9.79 0 1 1 8.31 4.6zM20.36 3.6A11.75 11.75 0 0 0 1.87 17.78L.2 23.88l6.25-1.64a11.74 11.74 0 0 0 5.6 1.43h.01a11.75 11.75 0 0 0 8.3-20.07z"/></svg>
+      <span>Join WhatsApp Community</span>
+    </a>
+  </div>
+</section>
+
 </main>
 
 <!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer class="footer">
-  <p class="cta-line">Want the research first? <a href="https://chat.whatsapp.com/DUdUxpofHqE9auMNtDyZYr" target="_blank" rel="noopener">Join the WhatsApp community &rarr;</a></p>
+  <nav class="footer-links" aria-label="Social links">
+    <a href="https://www.instagram.com/sagarpatro604/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/sagarpps" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://chat.whatsapp.com/DUdUxpofHqE9auMNtDyZYr" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
   <p class="disclaimer">
     Everything here is for educational purposes only and is not investment advice.
     I am not a SEBI-registered investment adviser. Do your own research before investing.
@@ -268,6 +324,25 @@
       }
     });
   });
+
+  // fade sections in as they come into view
+  (function () {
+    var items = document.querySelectorAll('[data-reveal]');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
 </script>
 <script src="walker.js"></script>
 </body>
