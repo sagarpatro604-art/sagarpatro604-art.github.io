@@ -80,6 +80,18 @@
     and breaking down sectors and markets in plain English.
   </p>
 
+  <!-- ====== UPCOMING SESSION (hides itself after data-end) ====== -->
+  <a class="session-card" href="https://street-ka-dalal.pages.dev/session" target="_blank" rel="noopener"
+     data-end="2026-10-18T22:00:00+05:30">
+    <span class="session-tag"><span class="pulse" aria-hidden="true"></span> Upcoming free session</span>
+    <strong class="session-title">Community Meet 2</strong>
+    <span class="session-when">Sunday 18 October, 9:00 PM IST on Google Meet</span>
+    <span class="session-topics">This week in markets, quarterly results, the data centre theme and the trending topic.</span>
+    <span class="session-cta">Register free
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </a>
+
   <!-- ====== YOUR LINKS ====== -->
   <nav class="links" aria-label="My links">
     <a class="btn btn-wa" href="https://chat.whatsapp.com/DUdUxpofHqE9auMNtDyZYr" target="_blank" rel="noopener">
@@ -323,6 +335,11 @@
         fallback();
       }
     });
+  });
+
+  // hide the session card once the session has ended
+  document.querySelectorAll('.session-card[data-end]').forEach(function (el) {
+    if (Date.now() > Date.parse(el.getAttribute('data-end'))) el.hidden = true;
   });
 
   // fade sections in as they come into view

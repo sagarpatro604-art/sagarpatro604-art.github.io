@@ -451,6 +451,28 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
   font-size:1.02rem;
 }
 
+/* upcoming session card */
+.session-card{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  max-width:520px; margin:0 auto 22px; padding:20px 22px;
+  border:1px solid rgba(37,211,102,.45); border-radius:20px;
+  background:linear-gradient(180deg,rgba(37,211,102,.14),rgba(37,211,102,.04));
+  color:var(--ink); text-decoration:none; text-align:center;
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.session-card:hover,
+.session-card:focus-visible{ transform:translateY(-2px); box-shadow:0 14px 32px rgba(37,211,102,.22); }
+.session-card[hidden]{ display:none; }
+.session-tag{ display:inline-flex; align-items:center; gap:8px; font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+.session-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:1.7rem; letter-spacing:.02em; }
+.session-when{ font-weight:600; font-size:.98rem; }
+.session-topics{ font-size:.88rem; opacity:.75; max-width:420px; }
+.session-cta{
+  display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:12px 24px;
+  border-radius:999px; background:linear-gradient(180deg,#2bdd6f,#1fb757); color:#06220f; font-weight:700;
+}
+.session-cta svg{ width:17px; height:17px; }
+
 @media (max-width:460px){
   .links{ flex-direction:column; align-items:stretch; }
   .btn{ justify-content:center; }
