@@ -472,6 +472,13 @@ body.walker-on .portrait-wrap::before{ opacity:0; }
   border-radius:999px; background:linear-gradient(180deg,#2bdd6f,#1fb757); color:#06220f; font-weight:700;
 }
 .session-cta svg{ width:17px; height:17px; }
+/* gold variant (Community Meet 4: Gold + Nifty) */
+.session-card.gold{ border-color:rgba(217,184,120,.6); background:linear-gradient(180deg,rgba(217,184,120,.18),rgba(217,184,120,.04)); }
+.session-card.gold:hover,
+.session-card.gold:focus-visible{ box-shadow:0 14px 32px rgba(217,184,120,.25); }
+.session-card.gold .session-tag{ color:#e7c98a; }
+.session-sub{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:1.08rem; color:#e7c98a; margin-top:-2px; }
+.session-card.gold .session-cta{ background:linear-gradient(180deg,#f0d493,#c9a35e); color:#2a1d05; }
 
 @media (max-width:460px){
   .links{ flex-direction:column; align-items:stretch; }
