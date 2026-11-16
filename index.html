@@ -14,18 +14,28 @@
 <meta property="og:image" content="assets/share-preview.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1b1b1d">
+<meta name="theme-color" content="#0B0D0C">
 <link rel="icon" href="assets/favicon.svg">
+<script>try{var t=localStorage.getItem("bio.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="look_kit.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="glow" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
+
+<div class="topbar">
+  <span class="k-brand">Sagar <em>Patro</em></span>
+  <span class="topbar-right">
+    <span class="k-label topbar-tag">Equity Research</span>
+    <button type="button" class="k-theme" id="themeBtn" aria-label="Switch light or dark">
+      <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </span>
+</div>
 
 <!-- the figure that zooms out and walks down the page on scroll -->
 <div class="walker" aria-hidden="true">
@@ -50,7 +60,7 @@
   <div class="hero-stage">
     <h1 class="headline">
       <span class="line line-solid">Capital Markets</span>
-      <span class="line line-outline">&amp; Equity Research</span>
+      <span class="line line-outline">&amp; <em>Equity Research</em></span>
     </h1>
 
     <div class="portrait-wrap">
@@ -305,6 +315,14 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // light / dark switch (dark is the default)
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var root = document.documentElement;
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('bio.theme', next); } catch (e) { /* ignore */ }
+  });
 
   // copy the discount code, with a short "Copied" confirmation
   document.querySelectorAll('.copy-code').forEach(function (btn) {
